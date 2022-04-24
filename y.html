@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title>THIRD B html</title>
+        <script>
+            
+            function validateForm() {
+                let x = document.forms["myForm"]["FirstName"].value;
+                if (x == "") {
+                    alert("First Name must be filled!");
+                    return false;
+                }
+                else{
+                    returm true;
+                }
+                let y = document.forms["myForm"]["LastName"].value;
+                if (y == "") {
+                    alert("Last Name must be filled!");
+                    return false;
+                }
+                let e=document.forms["myForm"]["EmailID"].value;
+                var regex = /^[0-9]{2}[a-zA-Z]{3}[0-9]{3}@[nirmauni.ac.in]/;
+                if(e.match(regex)){
+                    return true;
+                }
+                else{
+                    document.getElementById("email").placeholder='Enter a valid email address'
+                    return false;
+                }
+                let p=document.forms["myForm"]["pwd"].value;
+                var regex=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+                if(p.match(regex)){
+                    return true;
+                }
+                else{
+                    alert("Enter valid Password");
+                    return false;
+                }
+                let cp=document.forms["myForm"]["cpwd"].value;
+                if(cp==p)
+                {
+                    return true;
+                }
+                else{
+                    alert("Paasword and Confirm Password does not match");
+                    return false;
+                }
+                function namecheck(){
+                    if((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122))
+                    {
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+        </script>
+        
+    </head>
+    <body background="https://gstsamadhaan.com/wp-content/uploads/2017/08/GST-Registration-page-background-2.jpg" >
+        <br>
+        <br>
+        <form name = "myForm" onsubmit="return validateForm()">
+            <table align = "center" bordercolor="black" cellpadding = "10">
+                <tr bgcolor="Black">
+                    <td colspan ="2">
+                        <h2 align = "center"> <font color = "white">Student Registration Form</font></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td><br><br><font color = "white">First Name:</font></td>
+                    <td><br><br><input type="text" name="FirstName" maxlength="20" onblur="namecheck()" placeholder="First Name" size = "50">
+                        <font color = "white">(Max 20 Characters)</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Last Name:</font></td>
+                    <td><input type="text" name="LastName" maxlength="20" onblur="namecheck()" placeholder="Last Name" size = "50">
+                        <font color = "white">(Max 20 Characters)</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Email ID:</font></td>
+                    <td><input type="email" name="EmailID" maxlength="100" id="email" placeholder="example@gmail.com" size = "50"></td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Mobile Number:</font></td>
+                    <td><input type="tel" name="MobileNumber" maxlength="10" placeholder="" size = "15">
+                        <font color = "white">(10 digit number)</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Date of Birth:</font></td>
+                    <td><input type="date" name="DOB">
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Gender:</font></td>
+                    <td>
+                    <input type="radio" name="Gender" value="Male">
+                    &nbsp;<font color = "white">Male</font>
+                    &nbsp;&nbsp;
+                    <input type="radio" name="Gender" value="Female">
+                    &nbsp;<font color = "white">Female</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Address:</font><br /><br><br></td>
+                    <td><textarea name="Address" rows="5" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <td><font color = "white">City:</font></td>
+                    <td><input type="text" name="City" maxlength="30" placeholder="City">
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">State:</font></td>
+                    <td><input type="text" name="State" maxlength="30" placeholder="State">
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Country:</font></td>
+                    <td><input type="text" name="State" maxlength="30" placeholder="Country">
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Course:</font></td>
+                    <td>
+                        <select name="course" id="course">
+                            <option value="none" selected disabled>Select an Option</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="M.Tech">M.Tech</option>
+                            <option value="B.Sc">B.Sc</option>
+                            <option value="BBA">BBA</option>
+                            <option value="MBA">MBA</option>
+                          </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Hobbies:</font></td>
+                    <td>
+                    <input type="checkbox" name="HobbyDrawing" value="Drawing">
+                    <font color = "white">Cricket</font>
+                    <input type="checkbox" name="HobbySinging" value="Singing">
+                    <font color = "white">Travelling</font>
+                    <input type="checkbox" name="HobbyDancing" value="Dancing">
+                    <font color = "white">Volleyball</font>
+                    <input type="checkbox" name="HobbyCooking" value="Cooking">
+                    <font color = "white">Watch Movies</font>
+                    <br>
+                    <input type="checkbox" name="HobbyOther" value="Other">
+                    <font color = "white">Others (Please specify)</font>
+                    <input type="text" name="Other_Hobby" maxlength="50" placeholder="">
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Password:</font></td>
+                    <td><input type="password" name="pwd" placeholder="">
+                    </td>
+                </tr>
+                <tr>
+                    <td><font color = "white">Confirm Password:</font></td>
+                    <td><input type="password" name="cpwd" placeholder="">
+                    </td>
+                </tr>
+                <tr>
+                    <td align= "Center" colspan="2">
+                        <br>
+                        <br>
+                        <input type="reset" value="Reset">
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
